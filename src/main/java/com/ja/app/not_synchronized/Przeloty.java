@@ -1,7 +1,4 @@
-package com.ja.app.dziala;
-
-import com.ja.app.dziala.Konto;
-import com.ja.app.dziala.Osoba;
+package com.ja.app.not_synchronized;
 
 import java.time.LocalDate;
 
@@ -11,15 +8,15 @@ import java.time.LocalDate;
 public class Przeloty {
 
     static Osoba ala = new Osoba("Ala", "Kowalska", LocalDate.now());
-
     static Konto konto = new Konto(1, 1000_000, ala);
 
     public static void main(String[] args) {
         final int N = 100_000;
         final int KWOTA = 10;
 
-
-        System.out.println(konto);
+        System.out.println("Konto na początku:");
+        System.out.println(konto.getSaldo());
+        System.out.println("-------------------------------------");
 
         Thread wplacacz = new Thread(() -> {
             for(int i = 0; i < N; i++) {
@@ -37,11 +34,9 @@ public class Przeloty {
             }
         });
 
-        System.out.println("Uruchamiam wątki");
         wplacacz.start();
         wyplacacz.start();
 
-        System.out.println("Czekam na zakończenie");
         try {
             wplacacz.join();
             wyplacacz.join();
@@ -50,7 +45,7 @@ public class Przeloty {
         }
 
         System.out.println("Wątki zakończone, konto na końcu:");
-        System.out.println(konto);
+        System.out.println(konto.getSaldo());
 
     }
 

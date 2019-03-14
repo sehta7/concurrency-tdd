@@ -1,5 +1,8 @@
-package com.ja.app.nieddziala;
+package com.ja.app.synchronize;
 
+/**
+ * @author Ola Podorska
+ */
 class Konto {
 	private final int numer;
 	private int saldo;
@@ -19,7 +22,6 @@ class Konto {
 		if(kwota < 0) {
 			throw new IllegalArgumentException("Ujemna kwota " + kwota + " we wpłacie");
 		}
-		
 		synchronized(this) {
 			saldo += kwota;
 			this.notify();
@@ -30,7 +32,6 @@ class Konto {
 		if(kwota < 0) {
 			throw new IllegalArgumentException("Ujemna kwota " + kwota + " w wypłacie");
 		}
-		
 		synchronized(this) {
 			if (kwota > saldo) {
 				throw new Exception("Brak środków na koncie nr " + numer);
@@ -56,18 +57,6 @@ class Konto {
 			saldo -= kwota;
 			this.notify();
 		}
-	}
-
-	public Osoba getWlasciciel() {
-		return wlasciciel;
-	}
-
-	public void setWlasciciel(Osoba wlasciciel) {
-		this.wlasciciel = wlasciciel;
-	}
-
-	public int getNumer() {
-		return numer;
 	}
 
 	public int getSaldo() {

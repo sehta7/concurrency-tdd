@@ -1,4 +1,4 @@
-package com.ja.app.dziala;
+package com.ja.app.not_synchronized;
 
 /**
  * @author Ola Podorska
@@ -22,7 +22,6 @@ class Konto {
         if(kwota < 0) {
             throw new IllegalArgumentException("Ujemna kwota " + kwota + " we wpłacie");
         }
-
         saldo += kwota;
     }
 
@@ -33,20 +32,7 @@ class Konto {
         if(kwota > saldo) {
             throw new Exception("Brak środków na koncie nr " + numer);
         }
-
         saldo -= kwota;
-    }
-
-    public Osoba getWlasciciel() {
-        return wlasciciel;
-    }
-
-    public void setWlasciciel(Osoba wlasciciel) {
-        this.wlasciciel = wlasciciel;
-    }
-
-    public int getNumer() {
-        return numer;
     }
 
     public int getSaldo() {

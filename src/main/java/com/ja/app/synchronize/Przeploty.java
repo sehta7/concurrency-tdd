@@ -1,4 +1,4 @@
-package com.ja.app.nieddziala;
+package com.ja.app.synchronize;
 
 import java.time.LocalDate;
 
@@ -14,9 +14,9 @@ public class Przeploty {
         final int N = 100_000;
         final int KWOTA = 10;
 
-
-
-        System.out.println(konto);
+        System.out.println("Konto na początku:");
+        System.out.println(konto.getSaldo());
+        System.out.println("------------------------------");
 
         Thread wplacacz = new Thread(() -> {
             for(int i = 0 ; i < N; i++) {
@@ -34,11 +34,6 @@ public class Przeploty {
             }
         });
 
-        System.out.println("Uruchamiam wątki");
-        wplacacz.start();
-        wyplacacz.start();
-
-        System.out.println("Czekam na zakończenie");
         try {
             wplacacz.join();
             wyplacacz.join();
@@ -47,7 +42,7 @@ public class Przeploty {
         }
 
         System.out.println("Wątki zakończone, konto na końcu:");
-        System.out.println(konto);
+        System.out.println(konto.getSaldo());
     }
 
     public int getSaldo(){

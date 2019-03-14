@@ -1,18 +1,17 @@
-package com.ja.app.niedziala;
+package com.ja.app.synchronize;
 
-import com.ja.app.nieddziala.Przeploty;
+import com.ja.app.synchronize.Przeploty;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
  * @author Ola Podorska
  */
-public class asd {
+public class PrzeplotyTest {
 
     @Test(invocationCount = 100)
     public void testCountOfSaasdldo() {
         Przeploty p = new Przeploty();
-//        System.out.println(p.getSaldo());
         Assert.assertEquals(p.getSaldo(),1000000);
     }
 }
