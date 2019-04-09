@@ -22,3 +22,8 @@
 # Zadanie 4
   - W repozytorium jest klasa SorryImNull
   - Dopisz brakującą część implementacji aby podczas uruchomienia nie występował NPE
+# Zadanie 5
+  - Dla pakietu producent_konsument napraw zakleszczenie live lock
+  * dla bystrzaków (Z DEDYKACJĄ DLA Wojtka) - napisz swój live lock
+# Zadanie 6
+  - w pakiecie z testami znajdują się 2 testy: jeden przechodzi, drugi nie - naprawić!!
