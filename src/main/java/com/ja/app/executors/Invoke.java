@@ -5,43 +5,30 @@ import java.util.List;
 import java.util.concurrent.*;
 
 /**
- * @author Ola Podorska
+ * newWorkStealingPool() -->
+ * Creates a work-stealing thread pool using the number of
+ * availableProcessors available processors as its target
+ * parallelism level.
+ *
+ * invokeAny - Executes the given tasks, returning the result
+ * of one that has completed successfully (i.e., without throwing
+ * an exception), if any do.
+ *
+ * invokeAll - Executes the given tasks, returning a list of Futures
+ * holding their status and results when all complete.
+ * <p>
+ * Task:
+ * Create two types of list: with result to return and with result to return after some time.
+ * Use invoke() and invokeAll() to see the difference. What are they doing?
+ * </p>
  */
 class Invoke {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executor = Executors.newWorkStealingPool();
 
-        List<Callable<String>> callablesWithTime = Arrays.asList(
-                callableWithTime("I'll wait a little", 2),
-                callableWithTime("Wow, how much longer?", 4),
-                callableWithTime("Wait..", 1));
+        //invokeAny() on executor
 
-        List<Callable<String>> callablesWithoutTime = Arrays.asList(
-                callableWithoutTime("I don't have to wait"),
-                callableWithoutTime("Juupi!"),
-                callableWithoutTime("Can do anything"));
-
-       /* String result = null;
-        try {
-            result = executor.invokeAny(callablesWithTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        System.out.println(result);*/
-
-        executor.invokeAll(callablesWithoutTime)
-                .stream()
-                .map(future -> {
-                    try {
-                        return future.get();
-                    }
-                    catch (Exception e) {
-                        throw new IllegalStateException(e);
-                    }
-                })
-                .forEach(System.out::println);
+        //invokeAll() on executor
     }
 
     static Callable<String> callableWithTime(String result, long sleepSeconds) {

@@ -5,7 +5,16 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Ola Podorska
+ * newSingleThreadExecutor() -->
+ * Creates an Executor that uses a single worker thread operating
+ * off an unbounded queue. Tasks are guaranteed to execute
+ * sequentially, and no more than one task will be active at any
+ * given time.
+ * <p>
+ * Task:
+ * Do you remember FixThread? Try the same thing here - give a few tasks for available threads,
+ * and check (print name of thread) which one do it.
+ * </p>
  */
 class SingleThread {
 
@@ -14,9 +23,9 @@ class SingleThread {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(thread);
         System.out.println("What am I doing?");
-        for (int i = 0; i < 5; i++) {
-            executorService.execute(thread);
-        }
+
+        //give tasks for threads
+
         executorService.shutdown();
         //executorService.shutdownNow();
         System.out.println("Someone tell me..?");

@@ -6,7 +6,15 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Ola Podorska
+ * newScheduledThreadPool() -->
+ * Creates a thread pool that can schedule commands to run after a
+ * given delay, or to execute periodically.
+ * <p>
+ * Task:
+ * Don't run the program. First try to guess will be printed in the console.
+ * (*) - close the thread!
+ * </p>
+ *
  */
 class ScheduleThread {
     public static void main(String[] args) {
