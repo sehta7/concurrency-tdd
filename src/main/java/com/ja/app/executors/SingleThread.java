@@ -4,9 +4,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Ola Podorska
- */
 class SingleThread {
 
     public static void main(String[] args) {

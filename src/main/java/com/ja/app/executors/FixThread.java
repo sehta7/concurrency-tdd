@@ -3,9 +3,6 @@ package com.ja.app.executors;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * @author Ola Podorska
- */
 class FixThread {
 
     public static void main(String[] args) {

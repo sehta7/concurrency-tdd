@@ -3,9 +3,6 @@ package com.ja.app.executors;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Ola Podorska
- */
 class MyBigCallable implements Callable {
     @Override
     public Object call() throws Exception {
