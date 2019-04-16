@@ -4,9 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
 
-/**
- * @author Ola Podorska
- */
 class Invoke {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executor = Executors.newWorkStealingPool();
